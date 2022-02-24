@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# .txt files so api key is not pushed
+*.txt
+
 # Log file
 *.log
 
