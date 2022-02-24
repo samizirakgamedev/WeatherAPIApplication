@@ -13,6 +13,6 @@ public class WeatherAPIMain {
                 "London", APIKeyFileReader.readAPIKeyFile("apikey.txt"));
         System.out.println(cm.constructedUrl);
         jsonObject = Injector.getJSONResponse(Objects.requireNonNull(cm.getHttpResponse(cm.makeHttpRequest())));
-
+        Injector.injectIntoDTO(jsonObject);
     }
 }

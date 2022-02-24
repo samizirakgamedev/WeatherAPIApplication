@@ -45,4 +45,28 @@ public class Main{
 	public double getTempMax(){
 		return tempMax;
 	}
+
+	public void setTemp(double temp) {
+		this.temp = temp;
+	}
+
+	public void setTempMin(double tempMin) {
+		this.tempMin = tempMin;
+	}
+
+	public void setHumidity(int humidity) {
+		this.humidity = humidity;
+	}
+
+	public void setPressure(int pressure) {
+		this.pressure = pressure;
+	}
+
+	public void setFeelsLike(double feelsLike) {
+		this.feelsLike = feelsLike;
+	}
+
+	public void setTempMax(double tempMax) {
+		this.tempMax = tempMax;
+	}
 }
