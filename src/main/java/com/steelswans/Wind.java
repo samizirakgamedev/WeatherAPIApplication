@@ -36,4 +36,13 @@ public class Wind{
 	public void setGust(double gust){
 		this.gust = gust;
 	}
+
+	@Override
+	public String toString() {
+		return "Wind{" +
+				"deg=" + deg +
+				", speed=" + speed +
+				", gust=" + gust +
+				'}';
+	}
 }

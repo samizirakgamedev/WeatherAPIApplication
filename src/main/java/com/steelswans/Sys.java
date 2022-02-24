@@ -58,4 +58,15 @@ public class Sys{
 	public void setType(int type) {
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return "Sys{" +
+				"country='" + country + '\'' +
+				", sunrise=" + sunrise +
+				", sunset=" + sunset +
+				", id=" + id +
+				", type=" + type +
+				'}';
+	}
 }

@@ -69,4 +69,16 @@ public class Main{
 	public void setTempMax(double tempMax) {
 		this.tempMax = tempMax;
 	}
+
+	@Override
+	public String toString() {
+		return "Main{" +
+				"temp=" + temp +
+				", tempMin=" + tempMin +
+				", humidity=" + humidity +
+				", pressure=" + pressure +
+				", feelsLike=" + feelsLike +
+				", tempMax=" + tempMax +
+				'}';
+	}
 }

@@ -47,4 +47,14 @@ public class WeatherItem{
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	@Override
+	public String toString() {
+		return "WeatherItem{" +
+				"icon='" + icon + '\'' +
+				", description='" + description + '\'' +
+				", main='" + main + '\'' +
+				", id=" + id +
+				'}';
+	}
 }

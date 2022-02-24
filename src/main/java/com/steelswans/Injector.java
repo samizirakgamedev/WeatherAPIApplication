@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Injector {
@@ -28,7 +29,6 @@ public class Injector {
         Main main = new Main();
         Sys sys = new Sys();
         Weather weather = new Weather();
-        WeatherItem weatherItem = new WeatherItem();
         Wind wind = new Wind();
 
         // clouds
@@ -53,14 +53,6 @@ public class Injector {
         sys.setSunrise(Integer.parseInt(String.valueOf(jsonSys.get("sunrise"))));
         sys.setSunset(Integer.parseInt(String.valueOf(jsonSys.get("sunset"))));
         sys.setType(Integer.parseInt(String.valueOf(jsonSys.get("type"))));
-//        // weatherItem
-//        JSONArray jsonWeatherItem = (JSONArray) response.get("weather");
-//        for(Object item: jsonWeatherItem){
-//
-//        }
-//        weatherItem.setIcon(String.valueOf(jsonWeatherItem.get("icon")));
-//        weatherItem.setDescription(String.valueOf(jsonWeatherZero.get("description")));
-//        weatherItem.setMain(String.valueOf(jsonWeatherZero.get("main")));
 
         // wind
         JSONObject jsonWind = (JSONObject) response.get("wind");
@@ -81,13 +73,18 @@ public class Injector {
         weather.setId(Integer.parseInt(String.valueOf(response.get("id"))));
         weather.setName(String.valueOf(response.get("name")));
 
+        // weatherItem
         JSONArray jsonWeatherItems = (JSONArray) response.get("weather");
-//        JSONObject jsonWeatherItem = (JSONObject) response.get("weather");
-        weather.setWeather(jsonWeatherItems);
-
-
-        for(Object item: jsonWeatherItems){
-            
+        List<WeatherItem> weatherItems = new ArrayList<>();
+        for (int i = 0; i < jsonWeatherItems.size(); i++){
+            JSONObject jsonObject = (JSONObject) jsonWeatherItems.get(i);
+            WeatherItem item = new WeatherItem();
+            item.setId(Integer.parseInt(String.valueOf(jsonObject.get("id"))));
+            item.setDescription(String.valueOf(jsonObject.get("description")));
+            item.setIcon(String.valueOf(jsonObject.get("icon")));
+            item.setMain(String.valueOf(jsonObject.get("main")));
+            weatherItems.add(item);
         }
+        weather.setWeather(weatherItems);
     }
 }

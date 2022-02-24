@@ -147,4 +147,23 @@ public class Weather {
 	public void setWind(Wind wind) {
 		this.wind = wind;
 	}
+
+	@Override
+	public String toString() {
+		return "Weather{" +
+				"visibility=" + visibility +
+				", timezone=" + timezone +
+				", main=" + main +
+				", clouds=" + clouds +
+				", sys=" + sys +
+				", dt=" + dt +
+				", coord=" + coord +
+				", weather=" + weather +
+				", name='" + name + '\'' +
+				", cod=" + cod +
+				", id=" + id +
+				", base='" + base + '\'' +
+				", wind=" + wind +
+				'}';
+	}
 }
