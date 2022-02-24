@@ -18,7 +18,7 @@ public final class ConnectionManager {
         this.baseUrl = url;
         this.city = city;
         this.apiKey = apiKey;
-        this.constructedUrl = this.baseUrl + this.city + this.apiKey;
+        this.constructedUrl = this.baseUrl + this.city + "&appid=" + this.apiKey;
         this.httpClient = HttpClient.newHttpClient();
     }
 
