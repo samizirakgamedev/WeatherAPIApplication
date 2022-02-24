@@ -38,4 +38,35 @@ public class Sys{
 	public int getType(){
 		return type;
 	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public void setSunrise(int sunrise) {
+		this.sunrise = sunrise;
+	}
+
+	public void setSunset(int sunset) {
+		this.sunset = sunset;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "Sys{" +
+				"country='" + country + '\'' +
+				", sunrise=" + sunrise +
+				", sunset=" + sunset +
+				", id=" + id +
+				", type=" + type +
+				'}';
+	}
 }

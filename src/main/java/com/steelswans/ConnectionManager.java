@@ -18,7 +18,7 @@ public final class ConnectionManager {
         this.baseUrl = url;
         this.city = city;
         this.apiKey = apiKey;
-        this.constructedUrl = this.baseUrl + this.city + this.apiKey;
+        this.constructedUrl = this.baseUrl + this.city + "&appid=" + this.apiKey;
         this.httpClient = HttpClient.newHttpClient();
     }
 
@@ -32,7 +32,7 @@ public final class ConnectionManager {
     public HttpRequest makeHttpRequest() {
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(this.baseUrl))
+                .uri(URI.create(this.constructedUrl))
                 .build();
 
         return request;

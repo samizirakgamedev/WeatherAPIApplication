@@ -31,4 +31,30 @@ public class WeatherItem{
 	public int getId(){
 		return id;
 	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setMain(String main) {
+		this.main = main;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "WeatherItem{" +
+				"icon='" + icon + '\'' +
+				", description='" + description + '\'' +
+				", main='" + main + '\'' +
+				", id=" + id +
+				'}';
+	}
 }
