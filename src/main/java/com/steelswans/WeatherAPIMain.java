@@ -11,6 +11,7 @@ public class WeatherAPIMain {
     public static void main(String[] args) {
         ConnectionManager cm = ConnectionManager.getConnection("api.openweathermap.org/data/2.5/weather?q=",
                 "London", APIKeyFileReader.readAPIKeyFile("apikey.txt"));
+        System.out.println(cm.constructedUrl);
         jsonObject = Injector.getJSONResponse(cm.getHttpResponse(cm.makeHttpRequest()));
 
     }

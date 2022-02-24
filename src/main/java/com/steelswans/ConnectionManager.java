@@ -32,7 +32,7 @@ public final class ConnectionManager {
     public HttpRequest makeHttpRequest() {
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(this.baseUrl))
+                .uri(URI.create(this.constructedUrl))
                 .build();
 
         return request;
