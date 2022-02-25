@@ -22,7 +22,17 @@ public class WeatherAPIMain {
         System.out.println(cm.constructedUrl);
         Injector injector = new Injector();
         jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.getHttpResponse(cm.makeHttpRequest())));
-        injector.injectIntoDTO(jsonObject);
+        Clouds clouds = new Clouds();
+        Coord coord = new Coord();
+        Main main = new Main();
+        Sys sys = new Sys();
+        Weather weather = new Weather();
+        Wind wind = new Wind();
+        Snow snow = new Snow();
+        Rain rain = new Rain();
+        injector.injectIntoDTO(jsonObject, clouds, coord, main, sys, weather, wind, snow, rain);
+
+        System.out.println(weather);
 
 //        try {
 //            file = new FileWriter("testJSONObject.json");

@@ -23,13 +23,8 @@ public class Injector {
         return jsonObject;
     }
 
-    public void injectIntoDTO(JSONObject response){
-        Clouds clouds = new Clouds();
-        Coord coord = new Coord();
-        Main main = new Main();
-        Sys sys = new Sys();
-        Weather weather = new Weather();
-        Wind wind = new Wind();
+    public void injectIntoDTO(JSONObject response, Clouds clouds, Coord coord, Main main, Sys sys, Weather weather,
+                              Wind wind, Snow snow, Rain rain){
 
         // clouds
         JSONObject jsonClouds = (JSONObject) response.get("clouds");
@@ -53,12 +48,36 @@ public class Injector {
         sys.setSunrise(Integer.parseInt(String.valueOf(jsonSys.get("sunrise"))));
         sys.setSunset(Integer.parseInt(String.valueOf(jsonSys.get("sunset"))));
         sys.setType(Integer.parseInt(String.valueOf(jsonSys.get("type"))));
-
+        sys.setMessage(String.valueOf(jsonSys.get("message")));
         // wind
         JSONObject jsonWind = (JSONObject) response.get("wind");
         wind.setDeg(Integer.parseInt(String.valueOf(jsonWind.get("deg"))));
         wind.setSpeed(Double.parseDouble(String.valueOf(jsonWind.get("speed"))));
-//        wind.setGust(Double.parseDouble(String.valueOf(jsonWind.get("gust"))));
+        if (jsonWind.get("wind") != null) {
+            wind.setGust(Double.parseDouble(String.valueOf(jsonWind.get("gust"))));
+        }
+
+        // rain
+        if (response.get("rain") != null) {
+            JSONObject jsonRain = (JSONObject) response.get("rain");
+            if (jsonRain.get("1h") != null) {
+                rain.setRain1h(Double.parseDouble(String.valueOf(jsonRain.get("1h"))));
+            }
+            if (jsonRain.get("3h") != null) {
+                rain.setRain3h(Double.parseDouble(String.valueOf(jsonRain.get("3h"))));
+            }
+        }
+        //snow
+        if (response.get("snow") != null) {
+            JSONObject jsonSnow = (JSONObject) response.get("snow");
+            if (jsonSnow.get("1h") != null) {
+                if (jsonSnow.get("3h") != null) {
+                    snow.setSnow1h(Double.parseDouble(String.valueOf(jsonSnow.get("1h"))));
+                }
+            }
+            snow.setSnow3h(Double.parseDouble(String.valueOf(jsonSnow.get("3h"))));
+        }
+
         // weather
         weather.setCoord(coord);
         weather.setClouds(clouds);
@@ -72,6 +91,12 @@ public class Injector {
         weather.setTimezone(Integer.parseInt(String.valueOf(response.get("timezone"))));
         weather.setId(Integer.parseInt(String.valueOf(response.get("id"))));
         weather.setName(String.valueOf(response.get("name")));
+        if (rain != null) {
+            weather.setRain(rain);
+        }
+        if (snow != null) {
+            weather.setSnow(snow);
+        }
 
         // weatherItem
         JSONArray jsonWeatherItems = (JSONArray) response.get("weather");
