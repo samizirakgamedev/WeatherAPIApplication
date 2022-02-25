@@ -83,7 +83,14 @@ A testing framework to test the [Open Weather Map API](https://openweathermap.or
 </div>
 <br/>
 
-### Project Scope ###
+### Project Scope ### 
+As the API has a number of different responses, we need to use a Service Object Model. This model represents the various API requests using the following components:
+* **DTO**: Classes that represent the different types of responses that can be called.
+* **ConnectionManager**: A class which handles the connection to the live system and collecting the response.
+* **Injector**: A class responsible for injecting the JSON response into a weather DTO.
+The DTOs should provide access to all the data that testers could find useful.
+
+Along with providing the DTOs, we will also provide an example test bed showing examples of ALL the different types of test that can be performed. Include support for defining tests using Cucumber. The framework itself should also be internally tested using unit testing and mocking.
 
 <br/>
 <div align="right">
@@ -92,6 +99,20 @@ A testing framework to test the [Open Weather Map API](https://openweathermap.or
 <br/>
 
 ### Project Management ###
+Throughout the project we made use of multiple project management tools including:
+
+* GitHub, GitHub Desktop and Sourcetree for version control.
+* Trello for sprint and task management.
+* Microsoft Teams and Discord for collaborative working and meetings.
+Bellow is a commit graph showing the commit history of the project:
+
+COMMIT GRAPH TO BE ADDED 
+
+We each branched off and worked on our separate tasks and would then merge together to update each of our branches with an up-to-date version of the project. On the last day of the project we branched off less and merged in more frequently to refactor,make final updates and fix bugs.
+
+Our trello was also updated throughout our project to reflect the completion of deadlines and the completion of sprints and tests.
+
+TRELLO TO BE ADDED
 
 <br/>
 <div align="right">
