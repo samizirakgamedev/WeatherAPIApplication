@@ -34,7 +34,6 @@ public final class ConnectionManager {
                 .newBuilder()
                 .uri(URI.create(this.constructedUrl))
                 .build();
-
         return request;
     }
 
