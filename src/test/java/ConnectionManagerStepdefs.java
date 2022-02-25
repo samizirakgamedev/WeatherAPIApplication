@@ -19,7 +19,7 @@ public class ConnectionManagerStepdefs {
     private String city;
 
     @Given("I have a {string}, a {string} and a api Key")
-    public void iAnAAndA(String baseUrl, String city) {
+    public void iHaveAnBaseurlAndCity(String baseUrl, String city) {
         this.baseUrl = baseUrl;
         this.city = city;
     }

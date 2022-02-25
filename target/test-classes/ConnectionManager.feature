@@ -13,7 +13,7 @@ Feature: ConnectionManager
     When I call makeHttpRequest()
     Then I received a valid request status
 
-  @HTTPRequest
+  @HTTPReponso
   Scenario: Receives a HTTP response from the server
     Given I have a valid HTTP request
     When I call getHttpResponse()

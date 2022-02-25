@@ -1,7 +1,6 @@
 Feature: Injector
   The injector convert the HTTP response in a JSON object, then it assigns the inner json objects to the correspondent DTO classes.
 
-#video
   @GetJSONResponse
   Scenario: Returns a json Object from a valid HTTP response
     Given I have a valid HTTP response
