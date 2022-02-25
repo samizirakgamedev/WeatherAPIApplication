@@ -3,8 +3,11 @@ package com.steelswans;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
+import java.util.Map;
 
 public final class ConnectionManager {
     private static ConnectionManager instance;
@@ -48,6 +51,23 @@ public final class ConnectionManager {
         }
         return null;
 
+    }
+
+    public HttpResponse<String> getConnectionResponse() {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = makeHttpRequest();
+        HttpResponse<String> response = null;
+        try {
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    public Map<String, List<String>> getHeaders() {
+        HttpHeaders headers = getConnectionResponse().headers();
+        return headers.map();
     }
 
     // To Add - String Builder for url;
