@@ -7,12 +7,14 @@ import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 
 import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 
 public class ConnectionManagerStepdefs {
 
     private static ConnectionManager cm;
     private HttpRequest request;
+    private HttpResponse<String> response;
     private String baseUrl;
     private String city;
 
@@ -34,7 +36,7 @@ public class ConnectionManagerStepdefs {
 
     @Given("I have a valid connetion")
     public void iHaveAValidConnetion() {
-        cm = ConnectionManager.getConnection(baseUrl, city, APIKeyFileReader.readAPIKeyFile("validAPIkey.txt"));
+        cm = ConnectionManager.getConnection(baseUrl, city, APIKeyFileReader.readAPIKeyFile("apikey.txt"));
     }
 
     @When("I call makeHttpRequest\\()")
@@ -44,18 +46,21 @@ public class ConnectionManagerStepdefs {
 
     @Then("I received a valid request status")
     public void iReceivedAValidRequestStatus() {
-//        Assertions.assertInstanceOf();
+        Assertions.assertEquals(request.toString(), "https://api.openweathermap.org/data/2.5/weather?q=London&appid=111111111dddddddd GET");
     }
 
     @Given("I have a valid HTTP request")
     public void iHaveAValidHTTPRequest() {
+        request = cm.makeHttpRequest();
     }
 
     @When("I call getHttpResponse\\()")
     public void iCallGetHttpResponse() {
+        response = cm.getHttpResponse(request);
     }
 
-    @Then("I received a valid response")
+    @Then("I received a response")
     public void iReceivedAValidResponse() {
+        Assertions.assertEquals(response.toString(), "(GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=111111111dddddddd) 401");
     }
 }

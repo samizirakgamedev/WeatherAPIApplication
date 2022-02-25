@@ -17,4 +17,4 @@ Feature: ConnectionManager
   Scenario: Receives a HTTP response from the server
     Given I have a valid HTTP request
     When I call getHttpResponse()
-    Then I received a valid response
+    Then I received a response
