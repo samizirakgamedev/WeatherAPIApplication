@@ -9,7 +9,7 @@ Feature: ConnectionManager
 
   @HTTPRequest
   Scenario: Sends a HTTP request to the server
-    Given I have a valid connetion
+    Given I have a valid connection
     When I call makeHttpRequest()
     Then I received a valid request status
 

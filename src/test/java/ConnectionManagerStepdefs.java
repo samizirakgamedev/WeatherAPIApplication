@@ -34,7 +34,7 @@ public class ConnectionManagerStepdefs {
         Assertions.assertEquals(cm.constructedUrl, result);
     }
 
-    @Given("I have a valid connetion")
+    @Given("I have a valid connection")
     public void iHaveAValidConnetion() {
         cm = ConnectionManager.getConnection(baseUrl, city, APIKeyFileReader.readAPIKeyFile("apikey.txt"));
     }
