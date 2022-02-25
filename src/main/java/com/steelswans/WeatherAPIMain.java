@@ -1,8 +1,6 @@
 package com.steelswans;
 
 import org.json.simple.JSONObject;
-
-import java.net.http.HttpResponse;
 import java.util.Objects;
 
 public class WeatherAPIMain {
