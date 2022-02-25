@@ -85,7 +85,7 @@ public class InjectorStepdefs {
         injectorJsonResponse.injectIntoDTO(jsonObjectParse, clouds, coord, main, sys, weather, wind, snow, rain);
     }
 
-    @Then("All values from the JSON response object are assigned to their clases")
+    @Then("All values from the JSON response object are assigned to their classes")
     public void allValuesFromTheJSONResponseObjectAreAssignedToTheirClases() {
         Assertions.assertEquals(75, clouds.getAll());
 
