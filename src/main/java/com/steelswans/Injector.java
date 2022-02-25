@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Injector {
-    private static JSONParser jsonParser;
-    private static JSONObject jsonObject;
+    private JSONParser jsonParser;
+    private JSONObject jsonObject;
 
-    public static JSONObject getJSONResponse(HttpResponse<String> response) {
+    public JSONObject getJSONResponse(HttpResponse<String> response) {
         try{
             String responseBody = response.body();
             jsonParser = new JSONParser();
@@ -23,7 +23,7 @@ public class Injector {
         return jsonObject;
     }
 
-    public static void injectIntoDTO(JSONObject response){
+    public void injectIntoDTO(JSONObject response){
         Clouds clouds = new Clouds();
         Coord coord = new Coord();
         Main main = new Main();
