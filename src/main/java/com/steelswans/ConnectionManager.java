@@ -47,6 +47,7 @@ public final class ConnectionManager {
             e.printStackTrace();
         }
         return null;
+
     }
 
     // To Add - String Builder for url;
