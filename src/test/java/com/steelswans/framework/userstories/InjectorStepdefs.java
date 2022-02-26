@@ -85,7 +85,7 @@ public class InjectorStepdefs {
     }
 
     @Then("All values from the JSON response object are assigned to their classes")
-    public void allValuesFromTheJSONResponseObjectAreAssignedToTheirClases() {
+    public void allValuesFromTheJSONResponseObjectAreAssignedToTheirClasses() {
         Assertions.assertEquals(75, clouds.getAll());
 
         Assertions.assertEquals(-0.1257, coord.getLon());

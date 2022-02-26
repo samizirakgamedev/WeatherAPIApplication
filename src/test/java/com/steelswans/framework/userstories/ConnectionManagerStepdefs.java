@@ -36,11 +36,11 @@ public class ConnectionManagerStepdefs {
     }
 
     @Given("I have a valid connection")
-    public void iHaveAValidConnetion() {
+    public void iHaveAValidConnection() {
         cm = ConnectionManager.getConnection(baseUrl, city, APIKeyFileReader.readAPIKeyFile("invalidapikey.txt"));
     }
 
-    @When("I call makeHttpRequest\\()")
+    @When("I call makeHttpRequest")
     public void iCallMakeHttpRequest() {
         request = cm.makeHttpRequest();
     }
@@ -55,7 +55,7 @@ public class ConnectionManagerStepdefs {
         request = cm.makeHttpRequest();
     }
 
-    @When("I call getHttpResponse\\()")
+    @When("I call getHttpResponse")
     public void iCallGetHttpResponse() {
         response = cm.getHttpResponse(request);
     }
