@@ -1,6 +1,7 @@
+package com.steelswans.framework.userstories;
 
-import com.steelswans.APIKeyFileReader;
-import com.steelswans.ConnectionManager;
+import com.steelswans.framework.APIKeyFileReader;
+import com.steelswans.framework.ConnectionManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,7 +27,7 @@ public class ConnectionManagerStepdefs {
 
     @When("I call getConnection")
     public void iCallGetConnection() {
-        cm = ConnectionManager.getConnection(baseUrl, city, APIKeyFileReader.readAPIKeyFile("apikey.txt"));
+        cm = ConnectionManager.getConnection(baseUrl, city, APIKeyFileReader.readAPIKeyFile("invalidapikey.txt"));
     }
 
     @Then("the result should be {string}")
@@ -36,7 +37,7 @@ public class ConnectionManagerStepdefs {
 
     @Given("I have a valid connection")
     public void iHaveAValidConnetion() {
-        cm = ConnectionManager.getConnection(baseUrl, city, APIKeyFileReader.readAPIKeyFile("apikey.txt"));
+        cm = ConnectionManager.getConnection(baseUrl, city, APIKeyFileReader.readAPIKeyFile("invalidapikey.txt"));
     }
 
     @When("I call makeHttpRequest\\()")

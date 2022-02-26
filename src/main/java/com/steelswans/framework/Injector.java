@@ -1,5 +1,6 @@
-package com.steelswans;
+package com.steelswans.framework;
 
+import com.steelswans.dto.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -23,7 +24,7 @@ public class Injector {
         return jsonObject;
     }
 
-    public void injectIntoDTO(JSONObject response, Clouds clouds, Coord coord, Main main, Sys sys, Weather weather,
+    public static void injectIntoDTO(JSONObject response, Clouds clouds, Coord coord, Main main, Sys sys, Weather weather,
                               Wind wind, Snow snow, Rain rain){
 
         // clouds

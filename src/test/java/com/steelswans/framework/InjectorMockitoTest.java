@@ -1,5 +1,8 @@
-package com.steelswans;
+package com.steelswans.framework;
 
+import com.steelswans.framework.APIKeyFileReader;
+import com.steelswans.framework.ConnectionManager;
+import com.steelswans.framework.Injector;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;

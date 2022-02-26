@@ -1,8 +1,7 @@
-package com.steelswans;
+package com.steelswans.dto;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.cucumber.java.bs.Kada;
 
 public class Weather {
 

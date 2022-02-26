@@ -1,4 +1,4 @@
-package com.steelswans;
+package com.steelswans.framework;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,23 +1,22 @@
-import com.steelswans.*;
+package com.steelswans.framework.userstories;
+
+import com.steelswans.dto.*;
+import com.steelswans.framework.APIKeyFileReader;
+import com.steelswans.framework.ConnectionManager;
+import com.steelswans.framework.Injector;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.sl.In;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Objects;
-import java.util.Properties;
 
 public class InjectorStepdefs {
 
@@ -39,7 +38,7 @@ public class InjectorStepdefs {
     @Given("I have a valid HTTP response")
     public void iHaveAValidHTTPResponse() {
         cm = ConnectionManager.getConnection("https://api.openweathermap.org/data/2.5/weather?q=",
-                "London", APIKeyFileReader.readAPIKeyFile("validAPIkey.txt"));
+                "London", APIKeyFileReader.readAPIKeyFile("apikey.txt"));
     }
 
     @When("I call getJSONResponse")

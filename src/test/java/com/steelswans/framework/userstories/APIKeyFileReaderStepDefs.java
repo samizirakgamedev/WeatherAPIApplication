@@ -1,4 +1,6 @@
-import com.steelswans.APIKeyFileReader;
+package com.steelswans.framework.userstories;
+
+import com.steelswans.framework.APIKeyFileReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -7,7 +9,6 @@ import org.junit.jupiter.api.Assertions;
 public class APIKeyFileReaderStepDefs {
     private String filePath;
     private static String APIKFR;
-
 
     @Given("I have a file path of type {string}")
     public void iHaveAFilePathOfTypeString(String filePath) {
