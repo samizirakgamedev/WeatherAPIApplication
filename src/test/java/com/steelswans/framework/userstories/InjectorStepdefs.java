@@ -37,13 +37,13 @@ public class InjectorStepdefs {
 
     @Given("I have a valid HTTP response")
     public void iHaveAValidHTTPResponse() {
-        cm = ConnectionManager.getConnection("https://api.openweathermap.org/data/2.5/weather?q=",
+        cm = new ConnectionManager("https://api.openweathermap.org/data/2.5/weather?q=",
                 "London", APIKeyFileReader.readAPIKeyFile("apikey.txt"));
     }
 
     @When("I call getJSONResponse")
     public void iCallGetJSONResponse() {
-        response = Objects.requireNonNull(cm.getHttpResponse(cm.makeHttpRequest()));
+        response = Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest()));
     }
 
     @Then("I get a valid json Object")
@@ -85,7 +85,7 @@ public class InjectorStepdefs {
     }
 
     @Then("All values from the JSON response object are assigned to their classes")
-    public void allValuesFromTheJSONResponseObjectAreAssignedToTheirClases() {
+    public void allValuesFromTheJSONResponseObjectAreAssignedToTheirClasses() {
         Assertions.assertEquals(75, clouds.getAll());
 
         Assertions.assertEquals(-0.1257, coord.getLon());
