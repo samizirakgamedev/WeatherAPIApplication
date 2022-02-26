@@ -37,13 +37,13 @@ public class InjectorStepdefs {
 
     @Given("I have a valid HTTP response")
     public void iHaveAValidHTTPResponse() {
-        cm = ConnectionManager.getConnection("https://api.openweathermap.org/data/2.5/weather?q=",
+        cm = new ConnectionManager("https://api.openweathermap.org/data/2.5/weather?q=",
                 "London", APIKeyFileReader.readAPIKeyFile("apikey.txt"));
     }
 
     @When("I call getJSONResponse")
     public void iCallGetJSONResponse() {
-        response = Objects.requireNonNull(cm.getHttpResponse(cm.makeHttpRequest()));
+        response = Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest()));
     }
 
     @Then("I get a valid json Object")

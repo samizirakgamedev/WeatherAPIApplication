@@ -24,6 +24,16 @@ public class Injector {
         return jsonObject;
     }
 
+    public JSONObject getJSONResponseBody(String responseBody){
+        try{
+            jsonParser = new JSONParser();
+            jsonObject = (JSONObject) jsonParser.parse(responseBody);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
+
     public static void injectIntoDTO(JSONObject response, Clouds clouds, Coord coord, Main main, Sys sys, Weather weather,
                               Wind wind, Snow snow, Rain rain){
 
