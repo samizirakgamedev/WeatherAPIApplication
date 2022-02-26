@@ -19,6 +19,9 @@ public class Sys{
 	@JsonProperty("type")
 	private int type;
 
+	@JsonProperty("message")
+	private String message;
+
 	public String getCountry(){
 		return country;
 	}
@@ -37,6 +40,10 @@ public class Sys{
 
 	public int getType(){
 		return type;
+	}
+
+	public String getMessage(){
+		return message;
 	}
 
 	public void setCountry(String country) {
@@ -59,6 +66,10 @@ public class Sys{
 		this.type = type;
 	}
 
+	public void setMessage(String message){
+		this.message = message;
+	}
+
 	@Override
 	public String toString() {
 		return "Sys{" +
@@ -67,6 +78,7 @@ public class Sys{
 				", sunset=" + sunset +
 				", id=" + id +
 				", type=" + type +
+				", message='" + message + '\'' +
 				'}';
 	}
 }

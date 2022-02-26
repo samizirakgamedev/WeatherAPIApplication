@@ -2,6 +2,7 @@ package com.steelswans;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.cucumber.java.bs.Kada;
 
 public class Weather {
 
@@ -43,6 +44,12 @@ public class Weather {
 
 	@JsonProperty("wind")
 	private Wind wind;
+
+	@JsonProperty("rain")
+	private Rain rain;
+
+	@JsonProperty("snow")
+	private Snow snow;
 
 	public int getVisibility(){
 		return visibility;
@@ -94,6 +101,14 @@ public class Weather {
 
 	public Wind getWind(){
 		return wind;
+	}
+
+	public Rain getRain() {
+		return rain;
+	}
+
+	public Snow getSnow() {
+		return snow;
 	}
 
 	public void setVisibility(int visibility) {
@@ -148,6 +163,14 @@ public class Weather {
 		this.wind = wind;
 	}
 
+	public void setRain(Rain rain) {
+		this.rain = rain;
+	}
+
+	public void setSnow(Snow snow) {
+		this.snow = snow;
+	}
+
 	@Override
 	public String toString() {
 		return "Weather{" +
@@ -164,6 +187,8 @@ public class Weather {
 				", id=" + id +
 				", base='" + base + '\'' +
 				", wind=" + wind +
+				", rain=" + rain +
+				", snow=" + snow +
 				'}';
 	}
 }

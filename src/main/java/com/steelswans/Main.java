@@ -22,6 +22,12 @@ public class Main{
 	@JsonProperty("temp_max")
 	private double tempMax;
 
+	@JsonProperty("sea_level")
+	private int sea_level;
+
+	@JsonProperty("grnd_level")
+	private int grnd_level;
+
 	public double getTemp(){
 		return temp;
 	}
@@ -44,6 +50,14 @@ public class Main{
 
 	public double getTempMax(){
 		return tempMax;
+	}
+
+	public int getSea_level(){
+		return sea_level;
+	}
+
+	public int getGrnd_level(){
+		return grnd_level;
 	}
 
 	public void setTemp(double temp) {
@@ -70,6 +84,14 @@ public class Main{
 		this.tempMax = tempMax;
 	}
 
+	public void setSea_level(int sea_level) {
+		this.sea_level = sea_level;
+	}
+
+	public void setGrnd_level(int grnd_level) {
+		this.grnd_level = grnd_level;
+	}
+
 	@Override
 	public String toString() {
 		return "Main{" +
@@ -79,6 +101,8 @@ public class Main{
 				", pressure=" + pressure +
 				", feelsLike=" + feelsLike +
 				", tempMax=" + tempMax +
+				", sea_level=" + sea_level +
+				", grnd_level=" + grnd_level +
 				'}';
 	}
 }
