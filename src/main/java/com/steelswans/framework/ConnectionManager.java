@@ -9,15 +9,14 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Map;
 
-public final class ConnectionManager {
-    private static ConnectionManager instance;
+public class ConnectionManager {
     public String baseUrl;
     public String city;
     public String apiKey;
     public String constructedUrl;
     public HttpClient httpClient;
 
-    private ConnectionManager(String url, String city, String apiKey) {
+    public ConnectionManager(String url, String city, String apiKey) {
         this.baseUrl = url;
         this.city = city;
         this.apiKey = apiKey;
@@ -25,37 +24,55 @@ public final class ConnectionManager {
         this.httpClient = HttpClient.newHttpClient();
     }
 
-    public static ConnectionManager getConnection(String url, String city, String apiKey) {
-        if (instance == null)
-            instance = new ConnectionManager(url, city, apiKey);
-
-        return instance;
-    }
-
-    public HttpRequest makeHttpRequest() {
+    public HttpRequest returnHttpRequest() {
         HttpRequest request = HttpRequest
                 .newBuilder()
                 .uri(URI.create(this.constructedUrl))
                 .build();
+        System.out.println("Request: " + request);
+
         return request;
     }
 
-    public HttpResponse<String> getHttpResponse(HttpRequest request) {
+    public String returnStringHttpRequest() {
+        HttpRequest request = HttpRequest
+                .newBuilder()
+                .uri(URI.create(this.constructedUrl))
+                .build();
+
+        System.out.println("String Request: " + request);
+
+        return String.valueOf(request);
+    }
+
+    public HttpResponse<String> returnHttpResponse(HttpRequest request) {
         try {
             HttpResponse<String> response = httpClient
                     .send(request, HttpResponse.BodyHandlers.ofString());
-
+            System.out.println("Response: " + request);
             return response;
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
         return null;
-
     }
 
+    public String returnStringHttpResponse(HttpRequest request) {
+        try {
+            HttpResponse<String> response = httpClient
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println("Response: " + request);
+            return response.body();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // To Discuss with Mihai.
     public HttpResponse<String> getConnectionResponse() {
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = makeHttpRequest();
+        HttpRequest request = returnHttpRequest();
         HttpResponse<String> response = null;
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -72,5 +89,4 @@ public final class ConnectionManager {
 
     // To Add - String Builder for url;
     // or? String.format("api.openweathermap.org/data/2.5/weather?q={%d}&appid={%d}", city, apikey)
-    // FileReader class.
 }

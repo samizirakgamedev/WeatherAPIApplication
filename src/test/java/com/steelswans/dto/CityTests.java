@@ -21,10 +21,10 @@ public class CityTests {
 
     @BeforeAll
     public static void setUp(){
-        ConnectionManager cm = ConnectionManager.getConnection("https://api.openweathermap.org/data/2.5/weather?q=",
+        ConnectionManager cm = new ConnectionManager("https://api.openweathermap.org/data/2.5/weather?q=",
                 "bristol,gb", APIKeyFileReader.readAPIKeyFile("apikey.txt"));
         Injector injector = new Injector();
-        jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.getHttpResponse(cm.makeHttpRequest())));
+        jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
         clouds = new Clouds();
         coord = new Coord();
         main = new Main();

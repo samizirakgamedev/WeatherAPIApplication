@@ -13,11 +13,11 @@ public class WeatherAPIMain {
     private static FileWriter file;
 
     public static void main(String[] args) {
-        ConnectionManager cm = ConnectionManager.getConnection("https://api.openweathermap.org/data/2.5/weather?q=",
+        ConnectionManager cm = new ConnectionManager("https://api.openweathermap.org/data/2.5/weather?q=",
                 "London", APIKeyFileReader.readAPIKeyFile("apikey.txt"));
         System.out.println(cm.constructedUrl);
         Injector injector = new Injector();
-        jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.getHttpResponse(cm.makeHttpRequest())));
+        jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
         Clouds clouds = new Clouds();
         Coord coord = new Coord();
         Main main = new Main();
@@ -29,6 +29,9 @@ public class WeatherAPIMain {
         injector.injectIntoDTO(jsonObject, clouds, coord, main, sys, weather, wind, snow, rain);
 
         System.out.println(weather);
+
+
+        System.out.println(cm.returnStringHttpRequest());
 
 //        try {
 //            file = new FileWriter("testJSONObject.json");

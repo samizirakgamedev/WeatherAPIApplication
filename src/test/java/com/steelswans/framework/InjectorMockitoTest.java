@@ -1,8 +1,5 @@
 package com.steelswans.framework;
 
-import com.steelswans.framework.APIKeyFileReader;
-import com.steelswans.framework.ConnectionManager;
-import com.steelswans.framework.Injector;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
@@ -32,12 +29,12 @@ public class InjectorMockitoTest {
         String mockUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
         String mockCity = "London";
         String mockApiKey = APIKeyFileReader.readAPIKeyFile("apikey.txt");
-        ConnectionManager cm = ConnectionManager.getConnection(mockUrl, mockCity, mockApiKey);
+        ConnectionManager cm = new ConnectionManager(mockUrl, mockCity, mockApiKey);
 
         Injector injector = Mockito.mock(Injector.class);
         JSONObject expected = testJSONObject;
         Mockito.when(injector.getJSONResponse(any())).thenReturn(testJSONObject);
-        JSONObject actual =  injector.getJSONResponse(Objects.requireNonNull(cm.getHttpResponse(cm.makeHttpRequest())));
+        JSONObject actual =  injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
 
         Assertions.assertEquals(expected, actual);
     }
