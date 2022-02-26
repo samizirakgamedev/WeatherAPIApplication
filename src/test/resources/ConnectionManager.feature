@@ -10,11 +10,11 @@ Feature: ConnectionManager
   @HTTPRequest
   Scenario: Sends a HTTP request to the server
     Given I have a valid connection
-    When I call makeHttpRequest()
+    When I call makeHttpRequest
     Then I received a valid request status
 
   @HTTPResponse
   Scenario: Receives a HTTP response from the server
     Given I have a valid HTTP request
-    When I call getHttpResponse()
+    When I call getHttpResponse
     Then I received a response
