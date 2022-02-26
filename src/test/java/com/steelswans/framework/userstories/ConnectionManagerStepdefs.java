@@ -37,7 +37,7 @@ public class ConnectionManagerStepdefs {
 
     @Given("I have a valid connection")
     public void iHaveAValidConnection() {
-        cm = ConnectionManager.getConnection(baseUrl, city, APIKeyFileReader.readAPIKeyFile("invalidapikey.txt"));
+        cm = new ConnectionManager(baseUrl, city, APIKeyFileReader.readAPIKeyFile("invalidapikey.txt"));
     }
 
     @When("I call makeHttpRequest")
