@@ -76,6 +76,26 @@ A testing framework to test the [Open Weather Map API](https://openweathermap.or
 <br/>
 
 ### How To Use ###
+1. Navigate to the top of this GitHub repo and click the green **Code** button. This will open a menu where you will want to click **Download Zip**.
+
+<img src="readmeImages/htu1.jpg">
+
+2. Having clicked **Download ZIP** a **Save As** dialogue box will open. Choose where you want to store the compressed Weather API program and then click the **Save** button.
+
+<img src="readmeImages/htu2.jpg">
+
+3. Using Windows Explorer navigate to the location you saved the compressed Weather API program in. Right-click on the program and select **Extract Here**.
+
+<img src="readmeImages/htu3.jpg">
+
+4. Open IntelliJ Community Edition and click **File** and then **Open**. Navigate to the extracted Weather API program project folder and select it. Then click **Ok**.
+
+<img src="readmeImages/htu4.jpg">
+
+5. Once the project has opened and all dependencies have been downloaded look to the top right-hand corner of IntelliJ and ensure that the class that has been set to run is **WeatherAPIMain**. You can now run the program by clicking the green play button.
+
+<img src="readmeImages/htu5.jpg"> 
+
 
 <br/>
 <div align="right">
@@ -106,7 +126,7 @@ Throughout the project we made use of multiple project management tools includin
 * Microsoft Teams and Discord for collaborative working and meetings.
 Bellow is a commit graph showing the commit history of the project:
 
-<img src="readmeImages/comg1.png"/>
+<img src="readmeImages/commitlog.gif"/>
 
 We each branched off and worked on our separate tasks and would then merge together to update each of our branches with an up-to-date version of the project. On the last day of the project we branched off less and merged in more frequently to refactor,make final updates and fix bugs.
 
