@@ -21,48 +21,48 @@ class InjectorTest {
     public void getJSONResponseContainsWeather() {
         injector = new Injector();
         jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
-        String apiDeatils = jsonObject.toString();
-        MatcherAssert.assertThat(apiDeatils, CoreMatchers.containsString("weather"));
+        String apiDetails = jsonObject.toString();
+        MatcherAssert.assertThat(apiDetails, CoreMatchers.containsString("weather"));
     }
     @Test
     @DisplayName("Given a valid API key, the JSON response contains the 'clouds' section of the API")
     public void getJSONResponseContainsClouds() {
         injector = new Injector();
         jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
-        String apiDeatils = jsonObject.toString();
-        MatcherAssert.assertThat(apiDeatils, CoreMatchers.containsString("clouds"));
+        String apiDetails = jsonObject.toString();
+        MatcherAssert.assertThat(apiDetails, CoreMatchers.containsString("clouds"));
     }
     @Test
     @DisplayName("Given a valid API key, the JSON response contains the 'coord' section of the API")
     public void getJSONResponseContainsCoord() {
         injector = new Injector();
         jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
-        String apiDeatils = jsonObject.toString();
-        MatcherAssert.assertThat(apiDeatils, CoreMatchers.containsString("coord"));
+        String apiDetails = jsonObject.toString();
+        MatcherAssert.assertThat(apiDetails, CoreMatchers.containsString("coord"));
     }
     @Test
     @DisplayName("Given a valid API key, the JSON response contains the 'main' section of the API")
     public void getJSONResponseContainsMain() {
         injector = new Injector();
         jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
-        String apiDeatils = jsonObject.toString();
-        MatcherAssert.assertThat(apiDeatils, CoreMatchers.containsString("main"));
+        String apiDetails = jsonObject.toString();
+        MatcherAssert.assertThat(apiDetails, CoreMatchers.containsString("main"));
     }
     @Test
     @DisplayName("Given a valid API key, the JSON response contains the 'sys' section of the API")
     public void getJSONResponseContainsSys() {
         injector = new Injector();
         jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
-        String apiDeatils = jsonObject.toString();
-        MatcherAssert.assertThat(apiDeatils, CoreMatchers.containsString("sys"));
+        String apiDetails = jsonObject.toString();
+        MatcherAssert.assertThat(apiDetails, CoreMatchers.containsString("sys"));
     }
     @Test
     @DisplayName("Given a valid API key, the JSON response contains the 'wind' section of the API")
     public void getJSONResponseContainsWind() {
         injector = new Injector();
         jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
-        String apiDeatils = jsonObject.toString();
-        MatcherAssert.assertThat(apiDeatils, CoreMatchers.containsString("wind"));
+        String apiDetails = jsonObject.toString();
+        MatcherAssert.assertThat(apiDetails, CoreMatchers.containsString("wind"));
     }
     @Test
     @DisplayName("Given a valid API key, the JSON response is not null")
