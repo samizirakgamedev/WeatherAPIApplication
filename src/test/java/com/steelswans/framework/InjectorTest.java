@@ -15,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class InjectorTest {
     private static JSONObject jsonObject;
-    private static Clouds clouds;
-    private static Coord coord;
-    private static Main main;
-    private static Sys sys;
-    private static Weather weather;
-    private static Wind wind;
-    private static Snow snow;
-    private static Rain rain;
+//    private static Clouds clouds;
+//    private static Coord coord;
+//    private static Main main;
+//    private static Sys sys;
+//    private static Weather weather;
+//    private static Wind wind;
+//    private static Snow snow;
+//    private static Rain rain;
     private static Injector injector;
     private static ConnectionManager cm;
 
@@ -94,14 +94,4 @@ class InjectorTest {
         Assertions.assertNotNull(jsonObject);
     }
 
-    @Test
-    void injectIntoDTO() {
-        ConnectionManager cm = new ConnectionManager("https://api.openweathermap.org/data/2.5/weather?q=",
-                "bristol,gb", APIKeyFileReader.readAPIKeyFile("apikey.txt"));
-        injector = new Injector();
-        jsonObject = injector.getJSONResponse(Objects.requireNonNull(cm.returnHttpResponse(cm.returnHttpRequest())));
-        String apiDeatils = jsonObject.toString();
-
-
-    }
 }
