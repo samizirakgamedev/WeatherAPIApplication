@@ -92,7 +92,7 @@ A testing framework to test the [Open Weather Map API](https://openweathermap.or
 
 <img src="readmeImages/htus4.png">
 
-5. Create a txt file in the root directory and insert the API key from Open Weather API into a file called 'apikey.txt'.
+5. Create a 'txt' file in the root directory and insert the API key from Open Weather API into a file called 'apikey.txt'.
 
 <img src="readmeImages/htus5.png">
 
