@@ -122,6 +122,36 @@ TRELLO TO BE ADDED
 
 ### Testing Framework ###
 
+#### Mocking Using Mockito: ####
+
+#### JUnit Automatic Testing: ####
+
+JUnit Testing is a series of automatic tests that can be designed in a method that is easy to understand, 
+a third party user should also be able to create and use tests using the same format. In this project 3 classes were 
+tested using Junit testing, these are stated below:
+* APIKeyFileReader.
+* ConnectionManager.
+* Injector.
+
+Various tests were completed to establish each method with the classes listed above, works correctly. The details and 
+evidence of each JUnit test are listed below:
+
+
+
+
+#### Manual Testing: ####
+
+There is effectively no manual testing needed due to the absence of a user interface. The 'WeatherAPIMain' class/method 
+is simply to check if you get a response from the API key. Evidence that the method shows the response in the console 
+is shown below.
+
+
+
+#### Cucumber Testing: ####
+
+
+
+
 <br/>
 <div align="right">
     <b><a href="#weather-api-application-java">↥ back to top</a></b>
