@@ -168,9 +168,7 @@ where different *status codes* might be retrieved by the server, such as *404 No
 * Injector. This test made sure that the information inserted through the *DTO* design pattern was accurate. For this
 purpose, a *fake json response object* was created to test the values (As the information retrieved by OpenWeather is variable)
 
-
-
-
+<img src="readmeImages/cucumber1.png"/>
 
 <br/>
 <div align="right">
