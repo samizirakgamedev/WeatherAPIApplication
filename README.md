@@ -149,6 +149,18 @@ is shown below.
 
 #### Cucumber Testing: ####
 
+This project also followed Behavior-Driven Development (BDD) testing, which it's an agile software development process. 
+It encourages teams to use conversation and concrete examples to formalize a shared understanding of how the application 
+should behave. The classes covered by these tests were:
+
+* APIKeyFileReader. This checked if the method properly read a *.txt* file. Retrieving the right information.
+* ConnectionManager. Regarding the connection manager, the tests performed checked if the connection created, the
+*HTTPRequest* and *HTTPResponse* were correctly handled by the class. Furthermore, this tests covered different scenarios
+where different *status codes* might be retrieved by the server, such as *404 Not Found* or *429 Too Many Requests*.
+* Injector. This test made sure that the information inserted through the *DTO* design pattern was accurate. For this
+purpose, a *fake json response object* was created to test the values (As the information retrieved by OpenWeather is variable)
+
+
 
 
 
