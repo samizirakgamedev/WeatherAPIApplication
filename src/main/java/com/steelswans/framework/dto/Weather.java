@@ -3,6 +3,7 @@ package com.steelswans.framework.dto;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+// The main DTO class to store all weather data
 public class Weather {
 
 	@JsonProperty("visibility")

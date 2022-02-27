@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class APIKeyFileReader {
+    // Method for reading the API key from a file
     public static String readAPIKeyFile(String filePath){
         String line;
         String apiKey;

@@ -2,6 +2,7 @@ package com.steelswans.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+// Method to store wind data
 public class Wind{
 
 	@JsonProperty("deg")
