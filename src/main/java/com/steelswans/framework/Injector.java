@@ -1,6 +1,6 @@
 package com.steelswans.framework;
 
-import com.steelswans.dto.*;
+import com.steelswans.framework.dto.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

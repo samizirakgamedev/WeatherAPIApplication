@@ -1,4 +1,4 @@
-package com.steelswans.dto;
+package com.steelswans.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
