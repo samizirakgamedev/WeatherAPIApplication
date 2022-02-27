@@ -34,7 +34,7 @@ public class Injector {
         return jsonObject;
     }
 
-    public static void injectIntoDTO(JSONObject response, Clouds clouds, Coord coord, Main main, Sys sys, Weather weather,
+    public void injectIntoDTO(JSONObject response, Clouds clouds, Coord coord, Main main, Sys sys, Weather weather,
                               Wind wind, Snow snow, Rain rain){
 
         // clouds
