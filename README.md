@@ -129,7 +129,16 @@ TRELLO TO BE ADDED
 <br/>
 
 ### Outcomes and Future Work ###
+The project provides a testing framework for the current weather API.
+Testers can utilise its modularity to test various parts of the API, 
+without having to create or expand the code as it already provides
+ways to access all the relevant information. There are a lot of tests
+included in the framework (user stories, JUnit, mock tests). These can
+be applied in many general situations or used as a guide for creating
+further tests.
 
+Possible future expansions could include other APIs from the openweathermap.org
+website such as One Call API or Solar Radiation API.
 <br/>
 <div align="right">
     <b><a href="#weather-api-application-java">↥ back to top</a></b>
