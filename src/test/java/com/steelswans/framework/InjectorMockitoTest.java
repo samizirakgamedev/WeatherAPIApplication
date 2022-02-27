@@ -1,5 +1,6 @@
 package com.steelswans.framework;
 
+import com.steelswans.dto.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
@@ -12,8 +13,26 @@ import static org.mockito.ArgumentMatchers.any;
 
 public class InjectorMockitoTest {
     private static JSONObject testJSONObject;
+    private static String response;
+
+    private static Clouds clouds;
+    private static Coord coord;
+    private static Main main;
+    private static Sys sys;
+    private static Weather weather;
+    private static Wind wind;
+    private static Snow snow;
+    private static Rain rain;
     @BeforeAll
     public static void setUp(){
+        clouds = new Clouds();
+        coord = new Coord();
+        main = new Main();
+        sys = new Sys();
+        weather = new Weather();
+        wind = new Wind();
+        snow = new Snow();
+        rain = new Rain();
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new FileReader("testJSONObject.json"));
@@ -21,27 +40,31 @@ public class InjectorMockitoTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        try {
+            Object obj = parser.parse(new FileReader("response.json"));
+            response = obj.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-//    @Test
-//    public void testGetJSONResponse(){
-//        String mockUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
-//        String mockCity = "London";
-//        String mockApiKey = APIKeyFileReader.readAPIKeyFile("apikey.txt");
-//        ConnectionManager cm = ConnectionManager.getConnection(mockUrl, mockCity, mockApiKey);
-//
-//        Injector injector = Mockito.mock(Injector.class);
-//        JSONObject expected = testJSONObject;
-//        Mockito.when(injector.getJSONResponse(any())).thenReturn(testJSONObject);
-//        JSONObject actual =  injector.getJSONResponse(Objects.requireNonNull(cm.getHttpResponse(cm.makeHttpRequest())));
-//
-//        Assertions.assertEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void test(){
-//        ConnectionManager mockManager = Mockito.mock(ConnectionManager.class);
-//        Mockito.when(mockManager.getConnection(any(), any(), any())).thenReturn(mockManager);
-//        Mockito.when(mockManager.makeStringHttpRequest()).thenReturn("");
-//    }
+    @Test
+    public void testInjectIntoDTO(){
+        ConnectionManager mockManager = Mockito.mock(ConnectionManager.class);
+        Injector injector = new Injector();
+        Mockito.when(mockManager.returnStringHttpResponse(mockManager.returnHttpRequest())).thenReturn(response);
+        JSONObject jsonObject =  injector.getJSONResponseBody(mockManager.returnStringHttpResponse(mockManager.returnHttpRequest()));
+        injector.injectIntoDTO(jsonObject, clouds, coord, main, sys, weather, wind, snow, rain);
+        Assertions.assertNotNull(weather);
+    }
+
+    @Test
+    public void testGetJSONResponse(){
+        ConnectionManager mockManager = Mockito.mock(ConnectionManager.class);
+        Injector injector = new Injector();
+        Mockito.when(mockManager.returnStringHttpResponse(mockManager.returnHttpRequest())).thenReturn(response);
+        JSONObject jsonObject =  injector.getJSONResponseBody(mockManager.returnStringHttpResponse(mockManager.returnHttpRequest()));
+        Assertions.assertNotNull(jsonObject);
+    }
 }
