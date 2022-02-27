@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import java.io.*;
@@ -50,6 +51,7 @@ public class InjectorMockitoTest {
     }
 
     @Test
+    @DisplayName("When inject into DTO method is used, the weather object should not be null")
     public void testInjectIntoDTO(){
         ConnectionManager mockManager = Mockito.mock(ConnectionManager.class);
         Injector injector = new Injector();
@@ -57,9 +59,11 @@ public class InjectorMockitoTest {
         JSONObject jsonObject =  injector.getJSONResponseBody(mockManager.returnStringHttpResponse(mockManager.returnHttpRequest()));
         injector.injectIntoDTO(jsonObject, clouds, coord, main, sys, weather, wind, snow, rain);
         Assertions.assertNotNull(weather);
+
     }
 
     @Test
+    @DisplayName("When getJSON response method is used, jsonObject should not be null")
     public void testGetJSONResponse(){
         ConnectionManager mockManager = Mockito.mock(ConnectionManager.class);
         Injector injector = new Injector();
