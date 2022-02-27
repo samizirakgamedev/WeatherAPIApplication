@@ -7,7 +7,6 @@ import java.util.Objects;
 
 class APIKeyFileReaderTest {
     private static String filePath;
-    private static APIKeyFileReader APIKFR;
     private static String APIK;
 
     @Test
@@ -15,7 +14,6 @@ class APIKeyFileReaderTest {
             "as a 'NullPointerException'and returns null")
     void readAPIKeyFileNullCheck() {
         filePath = null;
-        APIKFR = new APIKeyFileReader();
         APIK = APIKeyFileReader.readAPIKeyFile(Objects.toString(filePath));
         String expected = null;
         Assertions.assertEquals(expected, APIK);

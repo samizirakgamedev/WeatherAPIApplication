@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 import java.util.Objects;
 
 public class DTOTest {
-    private static JSONObject jsonObject, jsonObject2;
+    private static JSONObject jsonObject;
     private static Clouds clouds;
     private static Coord coord;
     private static Main main;
