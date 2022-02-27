@@ -123,29 +123,37 @@ TRELLO TO BE ADDED
 ### Testing Framework ###
 
 #### Mocking Using Mockito: ####
+Mocking is used when you invoke methods of a class that has external communication like database calls or rest calls. 
+Through Mocking you can explicitly define the return value of methods without actually executing the steps of the 
+method. Mockito was the Mocking tool used in this project.
+Mocking in this project was used to mock the Connection Manager so that the injector is checked, even if there is no 
+actual connection. The results of the Mockito tests are shown below along with each corresponding test details:
+
+<img src="readmeImages/mkto1.png"/>
 
 #### JUnit Automatic Testing: ####
 
 JUnit Testing is a series of automatic tests that can be designed in a method that is easy to understand, 
-a third party user should also be able to create and use tests using the same format. In this project 3 classes were 
-tested using Junit testing, these are stated below:
+a third party user should also be able to create and use tests using the same format. In this project the classes that 
+were tested are show below:
 * APIKeyFileReader.
 * ConnectionManager.
 * Injector.
+* DTO Classes.
 
 Various tests were completed to establish each method with the classes listed above, works correctly. The details and 
 evidence of each JUnit test are listed below:
 
-
+<img src="readmeImages/junt1.png"/>
 
 
 #### Manual Testing: ####
 
-There is effectively no manual testing needed due to the absence of a user interface. The 'WeatherAPIMain' class/method 
-is simply to check if you get a response from the API key. Evidence that the method shows the response in the console 
-is shown below.
+There is effectively no manual testing needed due to the absence of a User Interface. The 'WeatherAPIMain' class/method 
+is simply to check if you get a response from the API key and get that response as a string. Evidence that the method 
+shows the response in the console is shown below:
 
-
+<img src="readmeImages/mlt1.png"/>
 
 #### Cucumber Testing: ####
 
