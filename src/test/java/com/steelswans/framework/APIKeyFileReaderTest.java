@@ -1,14 +1,9 @@
 package com.steelswans.framework;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.util.Objects;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class APIKeyFileReaderTest {
     private static String filePath;

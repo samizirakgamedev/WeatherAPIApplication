@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 
 import java.util.Objects;
 
-public class CityTests {
+public class DTOTest {
     private static JSONObject jsonObject, jsonObject2;
     private static Clouds clouds;
     private static Coord coord;
@@ -18,7 +18,8 @@ public class CityTests {
     private static Wind wind;
     private static Snow snow;
     private static Rain rain;
-
+    // Instantiating an instance of the ConnectionManager and the DTO classes prior to every test.
+    // Also injects the response from the API into the DTO prior to every test.
     @BeforeAll
     public static void setUp(){
         ConnectionManager cm = new ConnectionManager("https://api.openweathermap.org/data/2.5/weather?q=",
