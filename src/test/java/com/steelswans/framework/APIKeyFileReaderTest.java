@@ -3,6 +3,7 @@ package com.steelswans.framework;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
@@ -15,6 +16,8 @@ class APIKeyFileReaderTest {
     private static String APIK;
 
     @Test
+    @DisplayName("Given a filePath that is null, the programme reads the file " +
+            "as a 'NullPointerException'and returns null")
     void readAPIKeyFileNullCheck() {
         filePath = null;
         APIKFR = new APIKeyFileReader();
