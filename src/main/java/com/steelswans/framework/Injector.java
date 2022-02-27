@@ -13,6 +13,7 @@ public class Injector {
     private JSONParser jsonParser;
     private JSONObject jsonObject;
 
+    // Method for converting an HTTP response into a JSON object
     public JSONObject getJSONResponse(HttpResponse<String> response) {
         try{
             String responseBody = response.body();
@@ -24,6 +25,7 @@ public class Injector {
         return jsonObject;
     }
 
+    // Method for converting a String version of an HTTP response into a JSON object
     public JSONObject getJSONResponseBody(String responseBody){
         try{
             jsonParser = new JSONParser();
@@ -34,16 +36,20 @@ public class Injector {
         return jsonObject;
     }
 
+
+    // Method for injecting data from a JSON object into the DTO classes
     public void injectIntoDTO(JSONObject response, Clouds clouds, Coord coord, Main main, Sys sys, Weather weather,
                               Wind wind, Snow snow, Rain rain){
 
         // clouds
         JSONObject jsonClouds = (JSONObject) response.get("clouds");
         clouds.setAll(Integer.parseInt(String.valueOf(jsonClouds.get("all"))));
+
         // coord
         JSONObject jsonCoord = (JSONObject) response.get("coord");
         coord.setLat(Double.parseDouble(String.valueOf(jsonCoord.get("lat"))));
         coord.setLon(Double.parseDouble(String.valueOf(jsonCoord.get("lon"))));
+
         // main
         JSONObject jsonMain = (JSONObject) response.get("main");
         main.setFeelsLike(Double.parseDouble(String.valueOf(jsonMain.get("feels_like"))));
@@ -52,6 +58,7 @@ public class Injector {
         main.setTemp(Double.parseDouble(String.valueOf(jsonMain.get("temp"))));
         main.setTempMax(Double.parseDouble(String.valueOf(jsonMain.get("temp_max"))));
         main.setTempMin(Double.parseDouble(String.valueOf(jsonMain.get("temp_min"))));
+
         // sys
         JSONObject jsonSys = (JSONObject) response.get("sys");
         sys.setCountry(String.valueOf(jsonSys.get("country")));
@@ -60,6 +67,7 @@ public class Injector {
         sys.setSunset(Integer.parseInt(String.valueOf(jsonSys.get("sunset"))));
         sys.setType(Integer.parseInt(String.valueOf(jsonSys.get("type"))));
         sys.setMessage(String.valueOf(jsonSys.get("message")));
+
         // wind
         JSONObject jsonWind = (JSONObject) response.get("wind");
         wind.setDeg(Integer.parseInt(String.valueOf(jsonWind.get("deg"))));
@@ -78,6 +86,7 @@ public class Injector {
                 rain.setRain3h(Double.parseDouble(String.valueOf(jsonRain.get("3h"))));
             }
         }
+
         //snow
         if (response.get("snow") != null) {
             JSONObject jsonSnow = (JSONObject) response.get("snow");

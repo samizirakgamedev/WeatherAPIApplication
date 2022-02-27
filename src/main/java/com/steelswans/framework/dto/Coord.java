@@ -2,6 +2,7 @@ package com.steelswans.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+// A DTO class to store coordinates data
 public class Coord{
 
 	@JsonProperty("lon")

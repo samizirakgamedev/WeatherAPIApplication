@@ -2,6 +2,7 @@ package com.steelswans.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+// A DTO class to store sys data
 public class Sys{
 
 	@JsonProperty("country")

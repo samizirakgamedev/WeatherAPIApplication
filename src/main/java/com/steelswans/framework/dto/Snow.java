@@ -2,6 +2,7 @@ package com.steelswans.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+// A DTO class to store snow data
 public class Snow {
     @JsonProperty("1h")
     private double snow1h;
