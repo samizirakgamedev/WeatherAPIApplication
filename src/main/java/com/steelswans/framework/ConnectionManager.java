@@ -29,7 +29,7 @@ public class ConnectionManager {
                 .newBuilder()
                 .uri(URI.create(this.constructedUrl))
                 .build();
-        System.out.println("Request: " + request);
+//        System.out.println("Request: " + request);
 
         return request;
     }
@@ -40,7 +40,7 @@ public class ConnectionManager {
                 .uri(URI.create(this.constructedUrl))
                 .build();
 
-        System.out.println("String Request: " + request);
+//        System.out.println("String Request: " + request);
 
         return String.valueOf(request);
     }
@@ -49,7 +49,7 @@ public class ConnectionManager {
         try {
             HttpResponse<String> response = httpClient
                     .send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("Response: " + request);
+//            System.out.println("Response: " + request);
             return response;
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class ConnectionManager {
         try {
             HttpResponse<String> response = httpClient
                     .send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("Response: " + request);
+//            System.out.println("Response: " + request);
             return response.body();
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
