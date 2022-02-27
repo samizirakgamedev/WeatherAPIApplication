@@ -106,13 +106,13 @@ Throughout the project we made use of multiple project management tools includin
 * Microsoft Teams and Discord for collaborative working and meetings.
 Bellow is a commit graph showing the commit history of the project:
 
-COMMIT GRAPH TO BE ADDED 
+<img src="readmeImages/comg1.png"/>
 
 We each branched off and worked on our separate tasks and would then merge together to update each of our branches with an up-to-date version of the project. On the last day of the project we branched off less and merged in more frequently to refactor,make final updates and fix bugs.
 
 Our trello was also updated throughout our project to reflect the completion of deadlines and the completion of sprints and tests.
 
-TRELLO TO BE ADDED
+<img src="readmeImages/trlo1.png"/>
 
 <br/>
 <div align="right">
